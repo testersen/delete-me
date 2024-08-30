@@ -1,0 +1,15 @@
+on:
+  - workflow_dispatch
+  - push
+
+name: Test
+
+jobs:
+  test:
+    name: Show some debug info
+    runs-on: ubuntu-latest
+    steps:
+      - name: Show the github context
+        env:
+          context: ${{ toJson(github) }}
+        run: jq -C "$context"
